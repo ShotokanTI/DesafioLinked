@@ -1,0 +1,13 @@
+<div [style.background-image]="'url(' + backgroundUrl + ')'" class="shadow-2xl sets m-5 font-bold text-lg rounded-md cursor-pointer">
+    <div class="flex flex-col p-3 h-full text-white">
+            <mat-card-title class="truncate">
+            {{ magicCollectionView.name }}
+        </mat-card-title>
+        <mat-card-subtitle class="grow">
+            {{ magicCollectionView.block ?? "Unknow" }}
+        </mat-card-subtitle>
+        <div class="self-end p-1 m-2 rounded">
+            {{ magicCollectionView.releaseDate }}
+        </div>
+    </div>
+</div>

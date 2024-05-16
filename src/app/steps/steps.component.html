@@ -1,0 +1,40 @@
+<app-search-collection
+*ngIf="stepComponentsVisibility[0]"
+  (emitSearchByUserToParent)="getMagicCollections($event)"
+></app-search-collection>
+
+<div  class="h-full flex flex-wrap overflow-auto overflow-x-hidden justify-center" style="min-height: 600px;height: 100%;max-height: 700px;" *ngIf="stepComponentsVisibility[1]"  >
+  <app-choose-collection
+  *ngFor="let magicCollection of magicCollections.sets"
+  (click)="getMagicBoosters(magicCollection.code)"
+  [magicCollectionView]="magicCollection"></app-choose-collection>
+</div>
+
+<div *ngIf="stepComponentsVisibility[2]" class="mx-32 rounded bg-stone-100 bg-opacity-20  border-orange-100 border-opacity-10 shadow-2xl">
+  <div class="flex justify-around mb-1 items-center p-5">
+    <div class="text-white font-bold text-5xl">Your letters from the open pack</div>
+    <button *ngIf="canReset" (click)="reset()" mat-flat-button>Restart</button>
+  </div>
+    
+  <div  class="flex flex-wrap justify-center overflow-auto gap-4 mb-10
+  " style="height: 400px;">
+    <app-open-collection 
+    class="bg-stone-100 bg-opacity-20 border-x border-orange-100 border-opacity-10 shadow-2xl"
+    *ngFor="let card of magicBoosters.cards"
+    [attr.title]="card.name"
+    [card]="card">
+    </app-open-collection>
+  </div>
+</div>
+
+<div class="flex justify-center justify-items-center m-10" *ngIf="isRequested">
+  <div class="flex flex-col items-center">
+    <mat-spinner
+        color="#fcd02b"
+        indeterminate
+        >
+    </mat-spinner>
+    <div class="pt-6 text-white font-bold text-5xl">Opening the collection</div>
+    <div class="text-white font-bold text-4xl">waiting...</div>
+  </div>
+</div>

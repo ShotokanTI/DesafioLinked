@@ -1,0 +1,70 @@
+.card,
+.card-original {
+  width: 200px;
+  height: 290px;
+  transform-style: preserve-3d;
+}
+
+.card-flip {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+.card-front img {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.5s ease;
+}
+
+ .card-front:before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 97%;
+}
+
+.card-front:hover::after{
+  content: "Click for flip";
+  position: absolute;
+  color: white;
+  z-index: 10;
+  top:40%;
+  left: 30%;
+  width: 100%;
+  height: 97%;
+}
+
+.card-front:hover::before{
+  z-index: 2;
+  box-shadow: 0px 0px 90px 90px rgba(14, 13, 13, 0.7) inset;
+}
+
+.card-front:hover{
+  img{
+    transform: scale(1.03);
+  }
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  z-index: 1;
+  background: #171717;
+  color: #ffffff;
+}
+
+
+div .flex img{
+  max-width: none!important;
+  width: 20px!important;
+  height: 20px;
+}

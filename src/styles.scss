@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+@font-face {
+  font-family: "Magic";
+  src: url("../src/assets/fonts/MAGIC.TTF");
+}
+* {
+  font-family: Magic !important;
+}
+body {
+  color: #c5c5c5;
+}
+
+button {
+  color: #fcd02b !important;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::after {
+  border-bottom-color: #fcd02b !important;
+}
+
+.mat-mdc-progress-spinner .mdc-circular-progress__determinate-circle,
+.mat-mdc-progress-spinner .mdc-circular-progress__indeterminate-circle-graphic {
+  stroke: #fcd02b !important;
+}
